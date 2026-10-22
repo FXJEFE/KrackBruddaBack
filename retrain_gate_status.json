@@ -1,0 +1,58 @@
+{
+ "time": "2026-10-22 08:40:17",
+ "config": {
+  "N": 20,
+  "WIN_STREAK": 3,
+  "LOSS_STREAK": 3,
+  "MAX_DD_PCT": 10.0,
+  "FEW_TRADES_POLICY": "keep"
+ },
+ "per_tf": {
+  "1m": {
+   "n": 0,
+   "rolling_pnl": 0.0,
+   "win_streak": 0,
+   "loss_streak": 0,
+   "max_dd_pct": 0.0,
+   "decision": "freeze",
+   "reason": "few trades (0<20), not losing -> keep as is"
+  },
+  "5m": {
+   "n": 0,
+   "rolling_pnl": 0.0,
+   "win_streak": 0,
+   "loss_streak": 0,
+   "max_dd_pct": 0.0,
+   "decision": "freeze",
+   "reason": "few trades (0<20), not losing -> keep as is"
+  },
+  "15m": {
+   "n": 0,
+   "rolling_pnl": 0.0,
+   "win_streak": 0,
+   "loss_streak": 0,
+   "max_dd_pct": 0.0,
+   "decision": "freeze",
+   "reason": "few trades (0<20), not losing -> keep as is"
+  },
+  "1h": {
+   "n": 0,
+   "rolling_pnl": 0.0,
+   "win_streak": 0,
+   "loss_streak": 0,
+   "max_dd_pct": 0.0,
+   "decision": "freeze",
+   "reason": "few trades (0<20), not losing -> keep as is"
+  },
+  "4h": {
+   "n": 0,
+   "rolling_pnl": 0.0,
+   "win_streak": 0,
+   "loss_streak": 0,
+   "max_dd_pct": 0.0,
+   "decision": "freeze",
+   "reason": "few trades (0<20), not losing -> keep as is"
+  }
+ },
+ "retrain_tfs": []
+}

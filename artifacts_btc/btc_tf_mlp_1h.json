@@ -1,0 +1,375 @@
+{
+  "name": "btc_tf_mlp_1h",
+  "group": "tf_mlp",
+  "timeframe": "1h",
+  "role": "bias",
+  "features_in_order": [
+    "price_lag0",
+    "atr_lag0",
+    "ema_diff_lag0",
+    "rsi_lag0",
+    "garch_vol_lag0",
+    "macd_diff_lag0",
+    "vwap_lag0",
+    "price_vwap_diff_lag0",
+    "bb_position_lag0",
+    "roc_lag0",
+    "stochastic_lag0",
+    "cci_lag0",
+    "williams_lag0",
+    "momentum_lag0",
+    "realized_vol_lag0",
+    "chaikin_vol_lag0",
+    "adx_lag0",
+    "rvi_lag0",
+    "obv_lag0",
+    "volume_delta_lag0",
+    "ad_line_lag0",
+    "vol_osc_lag0",
+    "supertrend_lag0",
+    "hma_lag0",
+    "ichimoku_tenkan_lag0",
+    "sar_lag0",
+    "dpo_lag0",
+    "spread_lag0",
+    "dpo_causal_lag0",
+    "dpo_causal_z_lag0",
+    "price_lag1",
+    "atr_lag1",
+    "ema_diff_lag1",
+    "rsi_lag1",
+    "garch_vol_lag1",
+    "macd_diff_lag1",
+    "vwap_lag1",
+    "price_vwap_diff_lag1",
+    "bb_position_lag1",
+    "roc_lag1",
+    "stochastic_lag1",
+    "cci_lag1",
+    "williams_lag1",
+    "momentum_lag1",
+    "realized_vol_lag1",
+    "chaikin_vol_lag1",
+    "adx_lag1",
+    "rvi_lag1",
+    "obv_lag1",
+    "volume_delta_lag1",
+    "ad_line_lag1",
+    "vol_osc_lag1",
+    "supertrend_lag1",
+    "hma_lag1",
+    "ichimoku_tenkan_lag1",
+    "sar_lag1",
+    "dpo_lag1",
+    "spread_lag1",
+    "dpo_causal_lag1",
+    "dpo_causal_z_lag1",
+    "price_lag2",
+    "atr_lag2",
+    "ema_diff_lag2",
+    "rsi_lag2",
+    "garch_vol_lag2",
+    "macd_diff_lag2",
+    "vwap_lag2",
+    "price_vwap_diff_lag2",
+    "bb_position_lag2",
+    "roc_lag2",
+    "stochastic_lag2",
+    "cci_lag2",
+    "williams_lag2",
+    "momentum_lag2",
+    "realized_vol_lag2",
+    "chaikin_vol_lag2",
+    "adx_lag2",
+    "rvi_lag2",
+    "obv_lag2",
+    "volume_delta_lag2",
+    "ad_line_lag2",
+    "vol_osc_lag2",
+    "supertrend_lag2",
+    "hma_lag2",
+    "ichimoku_tenkan_lag2",
+    "sar_lag2",
+    "dpo_lag2",
+    "spread_lag2",
+    "dpo_causal_lag2",
+    "dpo_causal_z_lag2",
+    "price_lag3",
+    "atr_lag3",
+    "ema_diff_lag3",
+    "rsi_lag3",
+    "garch_vol_lag3",
+    "macd_diff_lag3",
+    "vwap_lag3",
+    "price_vwap_diff_lag3",
+    "bb_position_lag3",
+    "roc_lag3",
+    "stochastic_lag3",
+    "cci_lag3",
+    "williams_lag3",
+    "momentum_lag3",
+    "realized_vol_lag3",
+    "chaikin_vol_lag3",
+    "adx_lag3",
+    "rvi_lag3",
+    "obv_lag3",
+    "volume_delta_lag3",
+    "ad_line_lag3",
+    "vol_osc_lag3",
+    "supertrend_lag3",
+    "hma_lag3",
+    "ichimoku_tenkan_lag3",
+    "sar_lag3",
+    "dpo_lag3",
+    "spread_lag3",
+    "dpo_causal_lag3",
+    "dpo_causal_z_lag3"
+  ],
+  "n_features": 120,
+  "horizon_bars": 4,
+  "target": "1 if close[t+4] > close[t], 0 if lower (flat bars excluded from training)",
+  "output": "P(up) = probability of class 1",
+  "data": {
+    "XBTUSD": {
+      "rows": 96738,
+      "from": "2013-11-03 19:00:00",
+      "to": "2026-10-21 16:00:00"
+    },
+    "PI_XBTUSD": {
+      "rows": 58028,
+      "from": "2020-03-02 22:00:00",
+      "to": "2026-10-21 16:00:00"
+    }
+  },
+  "source_db": "data/btc_market.db (Kraken OHLCVT zips + Trades API, PI_XBTUSD futures charts)",
+  "feature_pipeline": "features_mt5.py -> mt5_utf8/mt5_signal_script.py ORIGINAL compute_technical_indicators via mt5_original_adapter (ALIGNMENT_V2 29-feature order)",
+  "garch_params": {
+    "omega": 0.02087585412272428,
+    "alpha": 0.13274436955316138,
+    "beta": 0.8606182007162408,
+    "scale": 100.0
+  },
+  "consensus": {
+    "min_confidence": 0.77,
+    "weights": {
+      "xgb6": 0.35,
+      "avg9": 0.4,
+      "rf28": 0.25,
+      "tf_mlp": 0.25
+    },
+    "tf_mlp_included": true
+  },
+  "thresholds": {
+    "consensus_min_conf": 0.77,
+    "single_model_examples": [
+      0.55,
+      0.6
+    ]
+  },
+  "walk_forward": {
+    "folds": 5,
+    "embargo_bars": 4,
+    "min_train_frac": 0.4,
+    "fold_detail": [
+      {
+        "fold": 1,
+        "train_until": "2020-03-05 18:00:00",
+        "test_rows": 23230
+      },
+      {
+        "fold": 2,
+        "train_until": "2021-07-02 22:00:00",
+        "test_rows": 23229
+      },
+      {
+        "fold": 3,
+        "train_until": "2022-10-30 03:00:00",
+        "test_rows": 23220
+      },
+      {
+        "fold": 4,
+        "train_until": "2024-02-26 07:00:00",
+        "test_rows": 23213
+      },
+      {
+        "fold": 5,
+        "train_until": "2025-06-24 12:00:00",
+        "test_rows": 23071
+      }
+    ]
+  },
+  "oos_metrics": {
+    "oos_rows": 115727,
+    "accuracy": 0.7629,
+    "majority_baseline": 0.5098,
+    "precision_up": 0.7976,
+    "precision_down": 0.7335,
+    "auc": 0.7992,
+    "bt_spot_taker_0.40%": {
+      "thr_0.55": {
+        "trades": 28352,
+        "win_rate": 0.2913,
+        "avg_net_pct": -0.2242,
+        "sum_net_pct": -6357.2
+      },
+      "thr_0.6": {
+        "trades": 27417,
+        "win_rate": 0.3013,
+        "avg_net_pct": -0.1952,
+        "sum_net_pct": -5352.4
+      }
+    },
+    "bt_futures_taker_0.05%": {
+      "thr_0.55": {
+        "trades": 28352,
+        "win_rate": 0.7023,
+        "avg_net_pct": 0.4758,
+        "sum_net_pct": 13489.2
+      },
+      "thr_0.6": {
+        "trades": 27417,
+        "win_rate": 0.7233,
+        "avg_net_pct": 0.5048,
+        "sum_net_pct": 13839.5
+      }
+    }
+  },
+  "consensus_oos": {
+    "3_groups": {
+      "spot_taker_0.40%": {
+        "thr_0.55": {
+          "trades": 18031,
+          "win_rate": 0.2244,
+          "avg_net_pct": -0.3845,
+          "sum_net_pct": -6932.0
+        },
+        "thr_0.6": {
+          "trades": 11388,
+          "win_rate": 0.255,
+          "avg_net_pct": -0.308,
+          "sum_net_pct": -3507.2
+        },
+        "thr_0.65": {
+          "trades": 4023,
+          "win_rate": 0.2921,
+          "avg_net_pct": -0.2328,
+          "sum_net_pct": -936.4
+        },
+        "thr_0.77": {
+          "trades": 157,
+          "win_rate": 0.4395,
+          "avg_net_pct": 0.3867,
+          "sum_net_pct": 60.7
+        }
+      },
+      "futures_taker_0.05%": {
+        "thr_0.55": {
+          "trades": 18031,
+          "win_rate": 0.6259,
+          "avg_net_pct": 0.3155,
+          "sum_net_pct": 5689.7
+        },
+        "thr_0.6": {
+          "trades": 11388,
+          "win_rate": 0.6599,
+          "avg_net_pct": 0.392,
+          "sum_net_pct": 4464.4
+        },
+        "thr_0.65": {
+          "trades": 4023,
+          "win_rate": 0.6542,
+          "avg_net_pct": 0.4672,
+          "sum_net_pct": 1879.7
+        },
+        "thr_0.77": {
+          "trades": 157,
+          "win_rate": 0.6561,
+          "avg_net_pct": 1.0867,
+          "sum_net_pct": 170.6
+        }
+      },
+      "bars_conf>=0.77": 314
+    },
+    "4_with_tf": {
+      "spot_taker_0.40%": {
+        "thr_0.55": {
+          "trades": 15619,
+          "win_rate": 0.2621,
+          "avg_net_pct": -0.2461,
+          "sum_net_pct": -3844.4
+        },
+        "thr_0.6": {
+          "trades": 13932,
+          "win_rate": 0.2954,
+          "avg_net_pct": -0.1676,
+          "sum_net_pct": -2334.6
+        },
+        "thr_0.65": {
+          "trades": 9565,
+          "win_rate": 0.3796,
+          "avg_net_pct": 0.0119,
+          "sum_net_pct": 114.1
+        },
+        "thr_0.77": {
+          "trades": 578,
+          "win_rate": 0.5433,
+          "avg_net_pct": 0.5011,
+          "sum_net_pct": 289.6
+        }
+      },
+      "futures_taker_0.05%": {
+        "thr_0.55": {
+          "trades": 15619,
+          "win_rate": 0.7022,
+          "avg_net_pct": 0.4539,
+          "sum_net_pct": 7088.9
+        },
+        "thr_0.6": {
+          "trades": 13932,
+          "win_rate": 0.7509,
+          "avg_net_pct": 0.5324,
+          "sum_net_pct": 7417.8
+        },
+        "thr_0.65": {
+          "trades": 9565,
+          "win_rate": 0.8095,
+          "avg_net_pct": 0.7119,
+          "sum_net_pct": 6809.6
+        },
+        "thr_0.77": {
+          "trades": 578,
+          "win_rate": 0.7682,
+          "avg_net_pct": 1.2011,
+          "sum_net_pct": 694.2
+        }
+      },
+      "bars_conf>=0.77": 1214
+    }
+  },
+  "created": "2026-10-22T05:58:21",
+  "export": {
+    "keras": "btc_tf_mlp_1h.keras",
+    "h5": "btc_tf_mlp_1h.h5",
+    "onnx": "btc_tf_mlp_1h.onnx",
+    "onnx_input": {
+      "name": "input",
+      "shape": [
+        null,
+        120
+      ],
+      "dtype": "float32"
+    },
+    "onnx_outputs": [
+      "P(up) float32 [N,1]"
+    ],
+    "tf2onnx_parity_error": "Required inputs (['sequential_11_1/normalization_11_1/Sub/y:0', 'sequential_11_1/normalization_11_1/Sqrt/x:0']) are missing from input feed (['input']).",
+    "onnx_builder": "manual (onnx.helper from Keras weights; tf2onnx graph dropped Normalization constants)",
+    "onnx_parity": {
+      "rows": 2000,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.1965723462358255e-08
+    }
+  },
+  "scaler": "keras Normalization layer inside the model (mean/var adapted on training rows)",
+  "window": 4
+}

@@ -1,0 +1,141 @@
+{
+ "saved_at": "2026-10-22T11:17:43+0200",
+ "mode_on_restart": "LIVE (default; PAPER only by typed console confirmation)",
+ "trader_mode": "PAPER (user choice)",
+ "equity": 5.0,
+ "flex": null,
+ "paper_accounts": [
+  {
+   "account": "paper_10",
+   "start": 10.0,
+   "equity": 10.0,
+   "return_pct": 0.0,
+   "open": 0,
+   "closed": 0,
+   "win_rate": null,
+   "fees": 0.0,
+   "max_dd_pct": 0.0,
+   "liquidations": 0,
+   "margin_calls": 0,
+   "tier": 1,
+   "reserve_usd": 0.0,
+   "worst_case_if_all_sl": 10.0
+  },
+  {
+   "account": "paper_100",
+   "start": 100.0,
+   "equity": 100.0,
+   "return_pct": 0.0,
+   "open": 0,
+   "closed": 0,
+   "win_rate": null,
+   "fees": 0.0,
+   "max_dd_pct": 0.0,
+   "liquidations": 0,
+   "margin_calls": 0,
+   "tier": 2,
+   "reserve_usd": 33.3,
+   "worst_case_if_all_sl": 100.0
+  },
+  {
+   "account": "paper_1000",
+   "start": 1000.0,
+   "equity": 1000.0,
+   "return_pct": 0.0,
+   "open": 0,
+   "closed": 0,
+   "win_rate": null,
+   "fees": 0.0,
+   "max_dd_pct": 0.0,
+   "liquidations": 0,
+   "margin_calls": 0,
+   "tier": 2,
+   "reserve_usd": 333.0,
+   "worst_case_if_all_sl": 1000.0
+  },
+  {
+   "account": "paper_10000",
+   "start": 10000.0,
+   "equity": 10000.0,
+   "return_pct": 0.0,
+   "open": 0,
+   "closed": 0,
+   "win_rate": null,
+   "fees": 0.0,
+   "max_dd_pct": 0.0,
+   "liquidations": 0,
+   "margin_calls": 0,
+   "tier": 2,
+   "reserve_usd": 3330.0,
+   "worst_case_if_all_sl": 10000.0
+  },
+  {
+   "account": "paper_100000",
+   "start": 100000.0,
+   "equity": 100000.0,
+   "return_pct": 0.0,
+   "open": 0,
+   "closed": 0,
+   "win_rate": null,
+   "fees": 0.0,
+   "max_dd_pct": 0.0,
+   "liquidations": 0,
+   "margin_calls": 0,
+   "tier": 2,
+   "reserve_usd": 33300.0,
+   "worst_case_if_all_sl": 100000.0
+  }
+ ],
+ "open_positions": [],
+ "streak": {
+  "streak": 0,
+  "mode": "NORMAL",
+  "cooldown_left_s": 0,
+  "entries_allowed": true
+ },
+ "gate": {
+  "gate_min": 0.77,
+  "gate_max": 0.9888
+ },
+ "goal": null,
+ "symbols": {
+  "futures": {
+   "symbol": "PF_XBTUSD",
+   "ccxt": "BTC/USD:USD",
+   "tag": "perpetual",
+   "linear": true,
+   "vol_usd_24h": 621131903.0,
+   "max_lev": 100.0,
+   "maint_margin": 0.005,
+   "min_qty": 0.0001
+  },
+  "spot": {
+   "pair": "XXBTZUSD",
+   "wsname": "XBT/USD",
+   "ccxt": "BTC/USD",
+   "quote": "ZUSD",
+   "vol_usd_24h": 244486669.0,
+   "max_lev": 10.0,
+   "max_lev_sell": 10.0,
+   "ordermin": 6e-05,
+   "costmin": 0.5
+  }
+ },
+ "lev_allowed": {
+  "min": 10.0,
+  "max": 50.0,
+  "now_max": 10.0
+ },
+ "models": {
+  "artifacts_btc/report_15m.json": "ba4ee24c717a",
+  "artifacts_btc/report_1h.json": "2b836da58d08",
+  "artifacts_btc/report_1m.json": "4f92550601fb",
+  "artifacts_btc/report_4h.json": "9d7a5cbc0048",
+  "artifacts_btc/report_5m.json": "0bf7e9c40c6b",
+  "artifacts_btc3/report3_15m.json": "350a01f13968",
+  "artifacts_btc3/report3_1h.json": "c7c9852ebdd3",
+  "artifacts_btc3/report3_1m.json": "365364d5aa7c",
+  "artifacts_btc3/report3_4h.json": "9bc2efa0efbd",
+  "artifacts_btc3/report3_5m.json": "0740307dda1a"
+ }
+}

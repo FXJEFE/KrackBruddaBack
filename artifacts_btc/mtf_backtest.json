@@ -1,0 +1,89 @@
+{
+  "htf_nonneutral_frac": 0.0551,
+  "candidates_total": 15088,
+  "eval_period": [
+    "2025-08-04 14:40:00",
+    "2026-09-29 01:42:00"
+  ],
+  "eval_days": 420.5,
+  "base_hit_rate_eval": 0.3366,
+  "max_calibrated_p": 1.0,
+  "calibration_bins_eval": [
+    [
+      "(0.0, 0.3]",
+      "1",
+      "0.0"
+    ],
+    [
+      "(0.3, 0.4]",
+      "7123",
+      "0.3212129720623333"
+    ],
+    [
+      "(0.4, 0.5]",
+      "183",
+      "0.5737704918032787"
+    ],
+    [
+      "(0.5, 0.6]",
+      "6",
+      "0.5"
+    ],
+    [
+      "(0.6, 0.7]",
+      "3",
+      "0.3333333333333333"
+    ],
+    [
+      "(0.7, 0.77]",
+      "2",
+      "1.0"
+    ],
+    [
+      "(0.77, 1.0]",
+      "205",
+      "0.6780487804878049"
+    ]
+  ],
+  "futures": {
+    "leverage": 50.0,
+    "avg_cost_pct_notional": 0.1723,
+    "avg_cost_pct_margin": 8.61,
+    "breakeven_hit_rate_avg": 0.6786,
+    "filter_trades": 24,
+    "filter_trades_per_day": 0.057,
+    "real_hit_rate": 0.5833,
+    "avg_net_pct_notional": -0.0319,
+    "avg_net_pct_margin": -1.6,
+    "equity_sim_from_5usd": {
+      "trades": 3,
+      "final_equity": 4.987,
+      "max_drawdown": -0.0113,
+      "skipped": {
+        "tier 1 (equity 5.01 < 100)": 13,
+        "tier 1 (equity 4.95 < 100)": 8
+      },
+      "killed": false
+    },
+    "unfiltered_all_aligned": {
+      "trades": 7544,
+      "per_day": 17.9,
+      "hit_rate": 0.3366,
+      "avg_net_pct_margin": -9.33
+    }
+  },
+  "spot": {
+    "leverage": 10.0,
+    "avg_cost_pct_notional": 0.91,
+    "avg_cost_pct_margin": 9.1,
+    "breakeven_hit_rate_avg": 1.9815,
+    "filter_trades": 0,
+    "filter_trades_per_day": 0.0,
+    "unfiltered_all_aligned": {
+      "trades": 7544,
+      "per_day": 17.9,
+      "hit_rate": 0.3366,
+      "avg_net_pct_margin": -9.24
+    }
+  }
+}
