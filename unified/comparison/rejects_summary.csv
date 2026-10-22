@@ -1,0 +1,15 @@
+source,canonical_symbol,timeframe,reason,n
+kraken,BTCUSD,H1,price_spike,1
+kraken,BTCUSD,M1,price_spike,3
+kraken,BTCUSD,M15,price_spike,2
+kraken,BTCUSD,M5,price_spike,2
+tradingview:BINANCE,BTCUSDT,D1,bad_timestamp,9
+tradingview:BINANCE,BTCUSDT,H4,bad_timestamp,2
+tradingview:BITFINEX,BTCUSD,D1,bad_timestamp,13
+tradingview:BITFINEX,BTCUSD,H4,bad_timestamp,2
+tradingview:BITSTAMP,BTCUSD,D1,bad_timestamp,13
+tradingview:BITSTAMP,BTCUSD,H4,bad_timestamp,2
+tradingview:COINBASE,BTCUSD,D1,bad_timestamp,11
+tradingview:COINBASE,BTCUSD,H4,bad_timestamp,2
+tradingview:KRAKEN,BTCUSD,D1,bad_timestamp,13
+tradingview:KRAKEN,BTCUSD,H4,bad_timestamp,2

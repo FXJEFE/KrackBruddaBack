@@ -1,0 +1,259 @@
+{
+  "name": "btc_xgb6_4h",
+  "group": "xgb6",
+  "timeframe": "4h",
+  "role": "bias",
+  "features_in_order": [
+    "price",
+    "atr",
+    "ema_diff",
+    "rsi",
+    "garch_vol",
+    "macd_diff"
+  ],
+  "n_features": 6,
+  "horizon_bars": 4,
+  "target": "1 if close[t+4] > close[t], 0 if lower (flat bars excluded from training)",
+  "output": "P(up) = probability of class 1",
+  "data": {
+    "XBTUSD": {
+      "rows": 25859,
+      "from": "2013-11-14 04:00:00",
+      "to": "2026-10-20 04:00:00"
+    },
+    "PI_XBTUSD": {
+      "rows": 14421,
+      "from": "2020-03-19 04:00:00",
+      "to": "2026-10-20 04:00:00"
+    }
+  },
+  "source_db": "data/btc_market.db (Kraken OHLCVT zips + Trades API, PI_XBTUSD futures charts)",
+  "feature_pipeline": "features_mt5.py -> mt5_utf8/mt5_signal_script.py ORIGINAL compute_technical_indicators via mt5_original_adapter (ALIGNMENT_V2 29-feature order)",
+  "garch_params": {
+    "omega": 0.03197786595791492,
+    "alpha": 0.11176190919834293,
+    "beta": 0.8882380907998091,
+    "scale": 100.0
+  },
+  "consensus": {
+    "min_confidence": 0.77,
+    "weights": {
+      "xgb6": 0.35,
+      "avg9": 0.4,
+      "rf28": 0.25,
+      "tf_mlp": 0.25
+    },
+    "tf_mlp_included": true
+  },
+  "thresholds": {
+    "consensus_min_conf": 0.77,
+    "single_model_examples": [
+      0.55,
+      0.6
+    ]
+  },
+  "walk_forward": {
+    "folds": 5,
+    "embargo_bars": 4,
+    "min_train_frac": 0.4,
+    "fold_detail": [
+      {
+        "fold": 1,
+        "train_until": "2019-09-19 08:00:00",
+        "test_rows": 5121
+      },
+      {
+        "fold": 2,
+        "train_until": "2021-02-18 00:00:00",
+        "test_rows": 6210
+      },
+      {
+        "fold": 3,
+        "train_until": "2022-07-20 12:00:00",
+        "test_rows": 6212
+      },
+      {
+        "fold": 4,
+        "train_until": "2023-12-20 04:00:00",
+        "test_rows": 6205
+      },
+      {
+        "fold": 5,
+        "train_until": "2025-05-20 16:00:00",
+        "test_rows": 6181
+      }
+    ]
+  },
+  "oos_metrics": {
+    "oos_rows": 29912,
+    "accuracy": 0.49,
+    "majority_baseline": 0.5144,
+    "precision_up": 0.5036,
+    "precision_down": 0.4683,
+    "auc": 0.4866,
+    "bt_spot_taker_0.40%": {
+      "thr_0.55": {
+        "trades": 6667,
+        "win_rate": 0.2808,
+        "avg_net_pct": -0.8889,
+        "sum_net_pct": -5926.4
+      },
+      "thr_0.6": {
+        "trades": 5340,
+        "win_rate": 0.2893,
+        "avg_net_pct": -0.8768,
+        "sum_net_pct": -4682.1
+      }
+    },
+    "bt_futures_taker_0.05%": {
+      "thr_0.55": {
+        "trades": 6667,
+        "win_rate": 0.4566,
+        "avg_net_pct": -0.1889,
+        "sum_net_pct": -1259.5
+      },
+      "thr_0.6": {
+        "trades": 5340,
+        "win_rate": 0.4566,
+        "avg_net_pct": -0.1768,
+        "sum_net_pct": -944.1
+      }
+    }
+  },
+  "consensus_oos": {
+    "3_groups": {
+      "spot_taker_0.40%": {
+        "thr_0.55": {
+          "trades": 4234,
+          "win_rate": 0.4334,
+          "avg_net_pct": 0.0859,
+          "sum_net_pct": 363.8
+        },
+        "thr_0.6": {
+          "trades": 3190,
+          "win_rate": 0.4558,
+          "avg_net_pct": 0.1787,
+          "sum_net_pct": 570.2
+        },
+        "thr_0.65": {
+          "trades": 1916,
+          "win_rate": 0.4859,
+          "avg_net_pct": 0.2612,
+          "sum_net_pct": 500.4
+        },
+        "thr_0.77": {
+          "trades": 460,
+          "win_rate": 0.4848,
+          "avg_net_pct": 0.2424,
+          "sum_net_pct": 111.5
+        }
+      },
+      "futures_taker_0.05%": {
+        "thr_0.55": {
+          "trades": 4234,
+          "win_rate": 0.6556,
+          "avg_net_pct": 0.7859,
+          "sum_net_pct": 3327.6
+        },
+        "thr_0.6": {
+          "trades": 3190,
+          "win_rate": 0.6737,
+          "avg_net_pct": 0.8787,
+          "sum_net_pct": 2803.2
+        },
+        "thr_0.65": {
+          "trades": 1916,
+          "win_rate": 0.6769,
+          "avg_net_pct": 0.9612,
+          "sum_net_pct": 1841.6
+        },
+        "thr_0.77": {
+          "trades": 460,
+          "win_rate": 0.6283,
+          "avg_net_pct": 0.9424,
+          "sum_net_pct": 433.5
+        }
+      },
+      "bars_conf>=0.77": 1132
+    },
+    "4_with_tf": {
+      "spot_taker_0.40%": {
+        "thr_0.55": {
+          "trades": 3481,
+          "win_rate": 0.5059,
+          "avg_net_pct": 0.4127,
+          "sum_net_pct": 1436.5
+        },
+        "thr_0.6": {
+          "trades": 3032,
+          "win_rate": 0.5458,
+          "avg_net_pct": 0.5577,
+          "sum_net_pct": 1691.0
+        },
+        "thr_0.65": {
+          "trades": 2206,
+          "win_rate": 0.6038,
+          "avg_net_pct": 0.7892,
+          "sum_net_pct": 1741.0
+        },
+        "thr_0.77": {
+          "trades": 713,
+          "win_rate": 0.5975,
+          "avg_net_pct": 0.9314,
+          "sum_net_pct": 664.1
+        }
+      },
+      "futures_taker_0.05%": {
+        "thr_0.55": {
+          "trades": 3481,
+          "win_rate": 0.734,
+          "avg_net_pct": 1.1127,
+          "sum_net_pct": 3873.2
+        },
+        "thr_0.6": {
+          "trades": 3032,
+          "win_rate": 0.7655,
+          "avg_net_pct": 1.2577,
+          "sum_net_pct": 3813.4
+        },
+        "thr_0.65": {
+          "trades": 2206,
+          "win_rate": 0.796,
+          "avg_net_pct": 1.4892,
+          "sum_net_pct": 3285.2
+        },
+        "thr_0.77": {
+          "trades": 713,
+          "win_rate": 0.7475,
+          "avg_net_pct": 1.6314,
+          "sum_net_pct": 1163.2
+        }
+      },
+      "bars_conf>=0.77": 1870
+    }
+  },
+  "created": "2026-10-22T05:54:39",
+  "export": {
+    "onnx": "btc_xgb6_4h.onnx",
+    "onnx_input": {
+      "name": "input",
+      "shape": [
+        null,
+        6
+      ],
+      "dtype": "float32"
+    },
+    "onnx_outputs": [
+      "label (int64)",
+      "probabilities (float32 [N,2], column 1 = P(up))"
+    ],
+    "native_json": "btc_xgb6_4h.xgb.json",
+    "onnx_parity": {
+      "rows": 2000,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 2.2724270465346308e-08,
+      "note": "float32 ONNX vs float64 native; tree split thresholds on large raw features (obv/ad_line/price) can flip on float32 rounding"
+    }
+  },
+  "scaler": null
+}

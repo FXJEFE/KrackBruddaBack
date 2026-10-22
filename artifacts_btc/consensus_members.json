@@ -1,0 +1,376 @@
+{
+  "4h": {
+    "members": [
+      "xgb6",
+      "rf28",
+      "tf_mlp"
+    ],
+    "dropped": [
+      "avg9"
+    ],
+    "trail": [
+      {
+        "dropped": "avg9",
+        "selection_sum_net_pct_before": -131.8,
+        "after": -33.0
+      }
+    ],
+    "cost_round_trip_notional": 0.0012,
+    "selection_half": {
+      "thr_0.65": {
+        "trades": 931,
+        "win_rate": 0.4898,
+        "avg_net_pct": -0.0354,
+        "sum_net_pct": -33.0
+      },
+      "thr_0.77": {
+        "trades": 149,
+        "win_rate": 0.5034,
+        "avg_net_pct": -0.1278,
+        "sum_net_pct": -19.0
+      }
+    },
+    "report_half_chosen": {
+      "thr_0.6": {
+        "trades": 1257,
+        "win_rate": 0.4781,
+        "avg_net_pct": -0.1006,
+        "sum_net_pct": -126.4
+      },
+      "thr_0.65": {
+        "trades": 589,
+        "win_rate": 0.4788,
+        "avg_net_pct": -0.105,
+        "sum_net_pct": -61.8
+      },
+      "thr_0.77": {
+        "trades": 12,
+        "win_rate": 0.5,
+        "avg_net_pct": 1.8156,
+        "sum_net_pct": 21.8
+      }
+    },
+    "report_half_all_members": {
+      "thr_0.6": {
+        "trades": 1079,
+        "win_rate": 0.4819,
+        "avg_net_pct": -0.0923,
+        "sum_net_pct": -99.6
+      },
+      "thr_0.65": {
+        "trades": 497,
+        "win_rate": 0.4769,
+        "avg_net_pct": -0.0076,
+        "sum_net_pct": -3.8
+      },
+      "thr_0.77": {
+        "trades": 5,
+        "win_rate": 0.6,
+        "avg_net_pct": 4.1837,
+        "sum_net_pct": 20.9
+      }
+    }
+  },
+  "1h": {
+    "members": [
+      "rf28",
+      "tf_mlp"
+    ],
+    "dropped": [
+      "avg9",
+      "xgb6"
+    ],
+    "trail": [
+      {
+        "dropped": "avg9",
+        "selection_sum_net_pct_before": -6.5,
+        "after": 82.2
+      },
+      {
+        "dropped": "xgb6",
+        "selection_sum_net_pct_before": 82.2,
+        "after": 90.3
+      }
+    ],
+    "cost_round_trip_notional": 0.0012,
+    "selection_half": {
+      "thr_0.65": {
+        "trades": 2569,
+        "win_rate": 0.529,
+        "avg_net_pct": 0.0352,
+        "sum_net_pct": 90.3
+      },
+      "thr_0.77": {
+        "trades": 647,
+        "win_rate": 0.5332,
+        "avg_net_pct": 0.0863,
+        "sum_net_pct": 55.8
+      }
+    },
+    "report_half_chosen": {
+      "thr_0.6": {
+        "trades": 2809,
+        "win_rate": 0.4685,
+        "avg_net_pct": -0.0967,
+        "sum_net_pct": -271.5
+      },
+      "thr_0.65": {
+        "trades": 359,
+        "win_rate": 0.4735,
+        "avg_net_pct": -0.1334,
+        "sum_net_pct": -47.9
+      },
+      "thr_0.77": {
+        "trades": 0,
+        "sum_net_pct": 0.0
+      }
+    },
+    "report_half_all_members": {
+      "thr_0.6": {
+        "trades": 3241,
+        "win_rate": 0.4418,
+        "avg_net_pct": -0.1268,
+        "sum_net_pct": -411.0
+      },
+      "thr_0.65": {
+        "trades": 888,
+        "win_rate": 0.4392,
+        "avg_net_pct": -0.1183,
+        "sum_net_pct": -105.1
+      },
+      "thr_0.77": {
+        "trades": 0,
+        "sum_net_pct": 0.0
+      }
+    }
+  },
+  "15m": {
+    "members": [
+      "xgb6",
+      "rf28"
+    ],
+    "dropped": [
+      "tf_mlp",
+      "avg9"
+    ],
+    "trail": [
+      {
+        "dropped": "tf_mlp",
+        "selection_sum_net_pct_before": -320.8,
+        "after": -236.8
+      },
+      {
+        "dropped": "avg9",
+        "selection_sum_net_pct_before": -236.8,
+        "after": -213.1
+      }
+    ],
+    "cost_round_trip_notional": 0.0012,
+    "selection_half": {
+      "thr_0.65": {
+        "trades": 3552,
+        "win_rate": 0.4617,
+        "avg_net_pct": -0.06,
+        "sum_net_pct": -213.1
+      },
+      "thr_0.77": {
+        "trades": 7,
+        "win_rate": 0.7143,
+        "avg_net_pct": 1.6485,
+        "sum_net_pct": 11.5
+      }
+    },
+    "report_half_chosen": {
+      "thr_0.6": {
+        "trades": 6170,
+        "win_rate": 0.3387,
+        "avg_net_pct": -0.107,
+        "sum_net_pct": -660.4
+      },
+      "thr_0.65": {
+        "trades": 429,
+        "win_rate": 0.3333,
+        "avg_net_pct": -0.0022,
+        "sum_net_pct": -0.9
+      },
+      "thr_0.77": {
+        "trades": 0,
+        "sum_net_pct": 0.0
+      }
+    },
+    "report_half_all_members": {
+      "thr_0.6": {
+        "trades": 7513,
+        "win_rate": 0.3602,
+        "avg_net_pct": -0.1059,
+        "sum_net_pct": -795.9
+      },
+      "thr_0.65": {
+        "trades": 194,
+        "win_rate": 0.4381,
+        "avg_net_pct": 0.1569,
+        "sum_net_pct": 30.4
+      },
+      "thr_0.77": {
+        "trades": 1,
+        "win_rate": 1.0,
+        "avg_net_pct": 5.1507,
+        "sum_net_pct": 5.2
+      }
+    }
+  },
+  "5m": {
+    "members": [
+      "rf28",
+      "tf_mlp"
+    ],
+    "dropped": [
+      "xgb6",
+      "avg9"
+    ],
+    "trail": [
+      {
+        "dropped": "xgb6",
+        "selection_sum_net_pct_before": -302.6,
+        "after": -284.7
+      },
+      {
+        "dropped": "avg9",
+        "selection_sum_net_pct_before": -284.7,
+        "after": -235.8
+      }
+    ],
+    "cost_round_trip_notional": 0.0012,
+    "selection_half": {
+      "thr_0.65": {
+        "trades": 2576,
+        "win_rate": 0.2081,
+        "avg_net_pct": -0.0915,
+        "sum_net_pct": -235.8
+      },
+      "thr_0.77": {
+        "trades": 93,
+        "win_rate": 0.1505,
+        "avg_net_pct": -0.1031,
+        "sum_net_pct": -9.6
+      }
+    },
+    "report_half_chosen": {
+      "thr_0.6": {
+        "trades": 15337,
+        "win_rate": 0.1604,
+        "avg_net_pct": -0.1152,
+        "sum_net_pct": -1766.8
+      },
+      "thr_0.65": {
+        "trades": 9222,
+        "win_rate": 0.137,
+        "avg_net_pct": -0.1129,
+        "sum_net_pct": -1041.0
+      },
+      "thr_0.77": {
+        "trades": 1550,
+        "win_rate": 0.1232,
+        "avg_net_pct": -0.103,
+        "sum_net_pct": -159.7
+      }
+    },
+    "report_half_all_members": {
+      "thr_0.6": {
+        "trades": 16361,
+        "win_rate": 0.1689,
+        "avg_net_pct": -0.1153,
+        "sum_net_pct": -1885.8
+      },
+      "thr_0.65": {
+        "trades": 7113,
+        "win_rate": 0.134,
+        "avg_net_pct": -0.1167,
+        "sum_net_pct": -830.4
+      },
+      "thr_0.77": {
+        "trades": 681,
+        "win_rate": 0.1057,
+        "avg_net_pct": -0.0972,
+        "sum_net_pct": -66.2
+      }
+    }
+  },
+  "1m": {
+    "members": [
+      "xgb6",
+      "rf28"
+    ],
+    "dropped": [
+      "avg9",
+      "tf_mlp"
+    ],
+    "trail": [
+      {
+        "dropped": "avg9",
+        "selection_sum_net_pct_before": -3755.9,
+        "after": -3734.5
+      },
+      {
+        "dropped": "tf_mlp",
+        "selection_sum_net_pct_before": -3734.5,
+        "after": -3713.0
+      }
+    ],
+    "cost_round_trip_notional": 0.0012,
+    "selection_half": {
+      "thr_0.65": {
+        "trades": 30891,
+        "win_rate": 0.0803,
+        "avg_net_pct": -0.1202,
+        "sum_net_pct": -3713.0
+      },
+      "thr_0.77": {
+        "trades": 12212,
+        "win_rate": 0.0551,
+        "avg_net_pct": -0.1196,
+        "sum_net_pct": -1460.4
+      }
+    },
+    "report_half_chosen": {
+      "thr_0.6": {
+        "trades": 30281,
+        "win_rate": 0.0591,
+        "avg_net_pct": -0.1189,
+        "sum_net_pct": -3600.2
+      },
+      "thr_0.65": {
+        "trades": 27691,
+        "win_rate": 0.0566,
+        "avg_net_pct": -0.1192,
+        "sum_net_pct": -3300.2
+      },
+      "thr_0.77": {
+        "trades": 19746,
+        "win_rate": 0.046,
+        "avg_net_pct": -0.1186,
+        "sum_net_pct": -2341.4
+      }
+    },
+    "report_half_all_members": {
+      "thr_0.6": {
+        "trades": 31358,
+        "win_rate": 0.0571,
+        "avg_net_pct": -0.1187,
+        "sum_net_pct": -3721.3
+      },
+      "thr_0.65": {
+        "trades": 27327,
+        "win_rate": 0.0556,
+        "avg_net_pct": -0.1188,
+        "sum_net_pct": -3247.5
+      },
+      "thr_0.77": {
+        "trades": 16094,
+        "win_rate": 0.0407,
+        "avg_net_pct": -0.1196,
+        "sum_net_pct": -1924.2
+      }
+    }
+  }
+}

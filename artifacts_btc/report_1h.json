@@ -1,0 +1,302 @@
+{
+  "data": {
+    "XBTUSD": {
+      "rows": 96738,
+      "from": "2013-11-03 19:00:00",
+      "to": "2026-10-21 16:00:00"
+    },
+    "PI_XBTUSD": {
+      "rows": 58028,
+      "from": "2020-03-02 22:00:00",
+      "to": "2026-10-21 16:00:00"
+    }
+  },
+  "garch_params": {
+    "omega": 0.02087585412272428,
+    "alpha": 0.13274436955316138,
+    "beta": 0.8606182007162408,
+    "scale": 100.0
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "train_until": "2020-03-05 18:00:00",
+      "test_rows": 23230
+    },
+    {
+      "fold": 2,
+      "train_until": "2021-07-02 22:00:00",
+      "test_rows": 23229
+    },
+    {
+      "fold": 3,
+      "train_until": "2022-10-30 03:00:00",
+      "test_rows": 23220
+    },
+    {
+      "fold": 4,
+      "train_until": "2024-02-26 07:00:00",
+      "test_rows": 23213
+    },
+    {
+      "fold": 5,
+      "train_until": "2025-06-24 12:00:00",
+      "test_rows": 23071
+    }
+  ],
+  "xgb6": {
+    "oos_rows": 115727,
+    "accuracy": 0.514,
+    "majority_baseline": 0.5098,
+    "precision_up": 0.5236,
+    "precision_down": 0.5042,
+    "auc": 0.5162,
+    "bt_spot_taker_0.40%": {
+      "thr_0.55": {
+        "trades": 22097,
+        "win_rate": 0.1603,
+        "avg_net_pct": -0.8038,
+        "sum_net_pct": -17762.3
+      },
+      "thr_0.6": {
+        "trades": 12936,
+        "win_rate": 0.1613,
+        "avg_net_pct": -0.7989,
+        "sum_net_pct": -10334.1
+      }
+    },
+    "bt_futures_taker_0.05%": {
+      "thr_0.55": {
+        "trades": 22097,
+        "win_rate": 0.4488,
+        "avg_net_pct": -0.1038,
+        "sum_net_pct": -2294.4
+      },
+      "thr_0.6": {
+        "trades": 12936,
+        "win_rate": 0.4511,
+        "avg_net_pct": -0.0989,
+        "sum_net_pct": -1278.9
+      }
+    }
+  },
+  "avg9": {
+    "oos_rows": 115727,
+    "accuracy": 0.5181,
+    "majority_baseline": 0.5098,
+    "precision_up": 0.5399,
+    "precision_down": 0.5064,
+    "auc": 0.5253,
+    "bt_spot_taker_0.40%": {
+      "thr_0.55": {
+        "trades": 19648,
+        "win_rate": 0.1699,
+        "avg_net_pct": -0.812,
+        "sum_net_pct": -15954.5
+      },
+      "thr_0.6": {
+        "trades": 9040,
+        "win_rate": 0.1938,
+        "avg_net_pct": -0.8197,
+        "sum_net_pct": -7409.8
+      }
+    },
+    "bt_futures_taker_0.05%": {
+      "thr_0.55": {
+        "trades": 19648,
+        "win_rate": 0.4654,
+        "avg_net_pct": -0.112,
+        "sum_net_pct": -2200.9
+      },
+      "thr_0.6": {
+        "trades": 9040,
+        "win_rate": 0.4587,
+        "avg_net_pct": -0.1197,
+        "sum_net_pct": -1081.8
+      }
+    }
+  },
+  "rf28": {
+    "oos_rows": 115727,
+    "accuracy": 0.758,
+    "majority_baseline": 0.5098,
+    "precision_up": 0.7658,
+    "precision_down": 0.7501,
+    "auc": 0.8371,
+    "bt_spot_taker_0.40%": {
+      "thr_0.55": {
+        "trades": 28625,
+        "win_rate": 0.2944,
+        "avg_net_pct": -0.1904,
+        "sum_net_pct": -5450.4
+      },
+      "thr_0.6": {
+        "trades": 27815,
+        "win_rate": 0.3008,
+        "avg_net_pct": -0.1614,
+        "sum_net_pct": -4490.4
+      }
+    },
+    "bt_futures_taker_0.05%": {
+      "thr_0.55": {
+        "trades": 28625,
+        "win_rate": 0.6931,
+        "avg_net_pct": 0.5096,
+        "sum_net_pct": 14587.1
+      },
+      "thr_0.6": {
+        "trades": 27815,
+        "win_rate": 0.7075,
+        "avg_net_pct": 0.5386,
+        "sum_net_pct": 14980.1
+      }
+    }
+  },
+  "tf_mlp": {
+    "oos_rows": 115727,
+    "accuracy": 0.7629,
+    "majority_baseline": 0.5098,
+    "precision_up": 0.7976,
+    "precision_down": 0.7335,
+    "auc": 0.7992,
+    "bt_spot_taker_0.40%": {
+      "thr_0.55": {
+        "trades": 28352,
+        "win_rate": 0.2913,
+        "avg_net_pct": -0.2242,
+        "sum_net_pct": -6357.2
+      },
+      "thr_0.6": {
+        "trades": 27417,
+        "win_rate": 0.3013,
+        "avg_net_pct": -0.1952,
+        "sum_net_pct": -5352.4
+      }
+    },
+    "bt_futures_taker_0.05%": {
+      "thr_0.55": {
+        "trades": 28352,
+        "win_rate": 0.7023,
+        "avg_net_pct": 0.4758,
+        "sum_net_pct": 13489.2
+      },
+      "thr_0.6": {
+        "trades": 27417,
+        "win_rate": 0.7233,
+        "avg_net_pct": 0.5048,
+        "sum_net_pct": 13839.5
+      }
+    }
+  },
+  "tf_mlp_in_consensus": true,
+  "consensus_3": {
+    "spot_taker_0.40%": {
+      "thr_0.55": {
+        "trades": 18031,
+        "win_rate": 0.2244,
+        "avg_net_pct": -0.3845,
+        "sum_net_pct": -6932.0
+      },
+      "thr_0.6": {
+        "trades": 11388,
+        "win_rate": 0.255,
+        "avg_net_pct": -0.308,
+        "sum_net_pct": -3507.2
+      },
+      "thr_0.65": {
+        "trades": 4023,
+        "win_rate": 0.2921,
+        "avg_net_pct": -0.2328,
+        "sum_net_pct": -936.4
+      },
+      "thr_0.77": {
+        "trades": 157,
+        "win_rate": 0.4395,
+        "avg_net_pct": 0.3867,
+        "sum_net_pct": 60.7
+      }
+    },
+    "futures_taker_0.05%": {
+      "thr_0.55": {
+        "trades": 18031,
+        "win_rate": 0.6259,
+        "avg_net_pct": 0.3155,
+        "sum_net_pct": 5689.7
+      },
+      "thr_0.6": {
+        "trades": 11388,
+        "win_rate": 0.6599,
+        "avg_net_pct": 0.392,
+        "sum_net_pct": 4464.4
+      },
+      "thr_0.65": {
+        "trades": 4023,
+        "win_rate": 0.6542,
+        "avg_net_pct": 0.4672,
+        "sum_net_pct": 1879.7
+      },
+      "thr_0.77": {
+        "trades": 157,
+        "win_rate": 0.6561,
+        "avg_net_pct": 1.0867,
+        "sum_net_pct": 170.6
+      }
+    },
+    "bars_conf>=0.77": 314
+  },
+  "consensus_4": {
+    "spot_taker_0.40%": {
+      "thr_0.55": {
+        "trades": 15619,
+        "win_rate": 0.2621,
+        "avg_net_pct": -0.2461,
+        "sum_net_pct": -3844.4
+      },
+      "thr_0.6": {
+        "trades": 13932,
+        "win_rate": 0.2954,
+        "avg_net_pct": -0.1676,
+        "sum_net_pct": -2334.6
+      },
+      "thr_0.65": {
+        "trades": 9565,
+        "win_rate": 0.3796,
+        "avg_net_pct": 0.0119,
+        "sum_net_pct": 114.1
+      },
+      "thr_0.77": {
+        "trades": 578,
+        "win_rate": 0.5433,
+        "avg_net_pct": 0.5011,
+        "sum_net_pct": 289.6
+      }
+    },
+    "futures_taker_0.05%": {
+      "thr_0.55": {
+        "trades": 15619,
+        "win_rate": 0.7022,
+        "avg_net_pct": 0.4539,
+        "sum_net_pct": 7088.9
+      },
+      "thr_0.6": {
+        "trades": 13932,
+        "win_rate": 0.7509,
+        "avg_net_pct": 0.5324,
+        "sum_net_pct": 7417.8
+      },
+      "thr_0.65": {
+        "trades": 9565,
+        "win_rate": 0.8095,
+        "avg_net_pct": 0.7119,
+        "sum_net_pct": 6809.6
+      },
+      "thr_0.77": {
+        "trades": 578,
+        "win_rate": 0.7682,
+        "avg_net_pct": 1.2011,
+        "sum_net_pct": 694.2
+      }
+    },
+    "bars_conf>=0.77": 1214
+  }
+}

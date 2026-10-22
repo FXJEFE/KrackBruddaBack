@@ -1,0 +1,76 @@
+{
+  "name": "btc3_15m",
+  "timeframe": "15m",
+  "classes": [
+    -1,
+    0,
+    1
+  ],
+  "class_meaning": {
+    "-1": "SELL",
+    "0": "HOLD",
+    "1": "BUY"
+  },
+  "internal_index": "label + 1",
+  "features_in_order": [
+    "price",
+    "atr",
+    "ema_diff",
+    "rsi",
+    "garch_vol",
+    "macd_diff",
+    "vwap",
+    "price_vwap_diff",
+    "bb_position",
+    "roc",
+    "stochastic",
+    "cci",
+    "williams",
+    "momentum",
+    "realized_vol",
+    "chaikin_vol",
+    "adx",
+    "rvi",
+    "obv",
+    "volume_delta",
+    "ad_line",
+    "vol_osc",
+    "supertrend",
+    "hma",
+    "ichimoku_tenkan",
+    "sar",
+    "dpo",
+    "spread",
+    "dpo_causal",
+    "dpo_causal_z",
+    "tl_atr10",
+    "tl_natr14",
+    "tl_rsi14",
+    "tl_adx14",
+    "tl_cci20",
+    "tl_mfi14",
+    "tl_bop",
+    "tl_linreg_slope14",
+    "tl_obv_slope10",
+    "tl_willr14"
+  ],
+  "required_features": [
+    "dpo"
+  ],
+  "dpo_lookahead_bars": 11,
+  "feature_source": "mt5_utf8/mt5_signal_script.py ORIGINAL (1:1, strict centred dpo) + dpo_causal/dpo_causal_z + TA-Lib extras",
+  "garch_params": {
+    "omega": 0.0012768906855088848,
+    "alpha": 0.2,
+    "beta": 0.78,
+    "scale": 100.0
+  },
+  "horizon_bars": 16,
+  "margin": 0.3,
+  "gate": {
+    "p_hit_min": 0.77,
+    "ev_after_costs_gt": 0
+  },
+  "created": "2026-10-22T07:53:26",
+  "report": "report3_15m.json"
+}

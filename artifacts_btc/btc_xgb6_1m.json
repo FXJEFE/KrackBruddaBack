@@ -1,0 +1,253 @@
+{
+  "name": "btc_xgb6_1m",
+  "group": "xgb6",
+  "timeframe": "1m",
+  "role": "entry",
+  "features_in_order": [
+    "price",
+    "atr",
+    "ema_diff",
+    "rsi",
+    "garch_vol",
+    "macd_diff"
+  ],
+  "n_features": 6,
+  "horizon_bars": 4,
+  "target": "1 if close[t+4] > close[t], 0 if lower (flat bars excluded from training)",
+  "output": "P(up) = probability of class 1",
+  "data": {
+    "XBTUSD": {
+      "rows": 773233,
+      "from": "2025-04-30 07:30:00",
+      "to": "2026-10-22 05:09:00"
+    },
+    "PI_XBTUSD": {
+      "rows": 516328,
+      "from": "2025-04-30 07:30:00",
+      "to": "2026-10-22 04:20:00"
+    }
+  },
+  "source_db": "data/btc_market.db (Kraken OHLCVT zips + Trades API, PI_XBTUSD futures charts)",
+  "feature_pipeline": "features_mt5.py -> mt5_utf8/mt5_signal_script.py ORIGINAL compute_technical_indicators via mt5_original_adapter (ALIGNMENT_V2 29-feature order)",
+  "garch_params": {
+    "omega": 5.3488570797479364e-05,
+    "alpha": 0.1,
+    "beta": 0.88,
+    "scale": 100.0
+  },
+  "consensus": {
+    "min_confidence": 0.77,
+    "weights": {
+      "xgb6": 0.35,
+      "avg9": 0.4,
+      "rf28": 0.25,
+      "tf_mlp": 0.25
+    },
+    "tf_mlp_included": true
+  },
+  "thresholds": {
+    "consensus_min_conf": 0.77,
+    "single_model_examples": [
+      0.55,
+      0.6
+    ]
+  },
+  "walk_forward": {
+    "folds": 5,
+    "embargo_bars": 4,
+    "min_train_frac": 0.4,
+    "fold_detail": [
+      {
+        "fold": 1,
+        "train_until": "2025-12-02 17:04:00",
+        "test_rows": 153364
+      },
+      {
+        "fold": 2,
+        "train_until": "2026-02-05 10:00:00",
+        "test_rows": 166514
+      },
+      {
+        "fold": 3,
+        "train_until": "2026-04-11 01:58:00",
+        "test_rows": 141382
+      },
+      {
+        "fold": 4,
+        "train_until": "2026-06-14 18:44:00",
+        "test_rows": 128357
+      },
+      {
+        "fold": 5,
+        "train_until": "2026-08-18 13:07:00",
+        "test_rows": 130889
+      }
+    ]
+  },
+  "oos_metrics": {
+    "oos_rows": 573396,
+    "accuracy": 0.5086,
+    "majority_baseline": 0.5003,
+    "precision_up": 0.5097,
+    "precision_down": 0.5078,
+    "auc": 0.5134,
+    "bt_spot_taker_0.40%": {
+      "thr_0.55": {
+        "trades": 33454,
+        "win_rate": 0.0023,
+        "avg_net_pct": -0.797,
+        "sum_net_pct": -26663.5
+      },
+      "thr_0.6": {
+        "trades": 6350,
+        "win_rate": 0.0044,
+        "avg_net_pct": -0.7926,
+        "sum_net_pct": -5033.3
+      }
+    },
+    "bt_futures_taker_0.05%": {
+      "thr_0.55": {
+        "trades": 33454,
+        "win_rate": 0.1702,
+        "avg_net_pct": -0.097,
+        "sum_net_pct": -3245.7
+      },
+      "thr_0.6": {
+        "trades": 6350,
+        "win_rate": 0.1425,
+        "avg_net_pct": -0.0926,
+        "sum_net_pct": -588.3
+      }
+    }
+  },
+  "consensus_oos": {
+    "3_groups": {
+      "spot_taker_0.40%": {
+        "thr_0.55": {
+          "trades": 51698,
+          "win_rate": 0.0029,
+          "avg_net_pct": -0.7209,
+          "sum_net_pct": -37269.7
+        },
+        "thr_0.6": {
+          "trades": 13922,
+          "win_rate": 0.0087,
+          "avg_net_pct": -0.6718,
+          "sum_net_pct": -9352.6
+        },
+        "thr_0.65": {
+          "trades": 1045,
+          "win_rate": 0.0344,
+          "avg_net_pct": -0.6258,
+          "sum_net_pct": -654.0
+        },
+        "thr_0.77": {
+          "trades": 0
+        }
+      },
+      "futures_taker_0.05%": {
+        "thr_0.55": {
+          "trades": 51698,
+          "win_rate": 0.2936,
+          "avg_net_pct": -0.0209,
+          "sum_net_pct": -1081.1
+        },
+        "thr_0.6": {
+          "trades": 13922,
+          "win_rate": 0.444,
+          "avg_net_pct": 0.0282,
+          "sum_net_pct": 392.8
+        },
+        "thr_0.65": {
+          "trades": 1045,
+          "win_rate": 0.3923,
+          "avg_net_pct": 0.0742,
+          "sum_net_pct": 77.5
+        },
+        "thr_0.77": {
+          "trades": 0
+        }
+      },
+      "bars_conf>=0.77": 0
+    },
+    "4_with_tf": {
+      "spot_taker_0.40%": {
+        "thr_0.55": {
+          "trades": 55610,
+          "win_rate": 0.0027,
+          "avg_net_pct": -0.7194,
+          "sum_net_pct": -40008.5
+        },
+        "thr_0.6": {
+          "trades": 46295,
+          "win_rate": 0.0033,
+          "avg_net_pct": -0.7043,
+          "sum_net_pct": -32607.5
+        },
+        "thr_0.65": {
+          "trades": 27449,
+          "win_rate": 0.0053,
+          "avg_net_pct": -0.6694,
+          "sum_net_pct": -18374.2
+        },
+        "thr_0.77": {
+          "trades": 6,
+          "win_rate": 0.3333,
+          "avg_net_pct": 0.6341,
+          "sum_net_pct": 3.8
+        }
+      },
+      "futures_taker_0.05%": {
+        "thr_0.55": {
+          "trades": 55610,
+          "win_rate": 0.2825,
+          "avg_net_pct": -0.0194,
+          "sum_net_pct": -1081.5
+        },
+        "thr_0.6": {
+          "trades": 46295,
+          "win_rate": 0.3365,
+          "avg_net_pct": -0.0043,
+          "sum_net_pct": -201.0
+        },
+        "thr_0.65": {
+          "trades": 27449,
+          "win_rate": 0.4794,
+          "avg_net_pct": 0.0306,
+          "sum_net_pct": 840.1
+        },
+        "thr_0.77": {
+          "trades": 6,
+          "win_rate": 0.5,
+          "avg_net_pct": 1.3341,
+          "sum_net_pct": 8.0
+        }
+      },
+      "bars_conf>=0.77": 10
+    }
+  },
+  "created": "2026-10-22T06:47:50",
+  "export": {
+    "onnx": "btc_xgb6_1m.onnx",
+    "onnx_input": {
+      "name": "input",
+      "shape": [
+        null,
+        6
+      ],
+      "dtype": "float32"
+    },
+    "onnx_outputs": [
+      "label (int64)",
+      "probabilities (float32 [N,2], column 1 = P(up))"
+    ],
+    "native_json": "btc_xgb6_1m.xgb.json",
+    "onnx_parity": {
+      "rows": 2000,
+      "max_abs_diff": 1.1920928955078125e-07,
+      "mean_abs_diff": 1.552701078821883e-08,
+      "note": "float32 ONNX vs float64 native; tree split thresholds on large raw features (obv/ad_line/price) can flip on float32 rounding"
+    }
+  },
+  "scaler": null
+}

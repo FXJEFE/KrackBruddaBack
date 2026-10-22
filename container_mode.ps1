@@ -1,0 +1,1 @@
+param([switch]$Pull) $KB = Split-Path $PSScriptRoot; if (-not (Get-Command docker -EA 0)) { Write-Host "docker missing"; exit 1 }; if ($Pull) { docker pull ghcr.io/fxjefe/larrylarp3-kraken:dev }; docker compose -f "$KB\docker-compose.yml" up -d
